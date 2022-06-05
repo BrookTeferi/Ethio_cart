@@ -38,6 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'catagory',
+    'Accounts',
 ]
 
 MIDDLEWARE = [
@@ -70,6 +71,7 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'Ethio_Cart.wsgi.application'
 
+Auth_User_Model = 'Accounts.Account'
 
 # Database
 # https://docs.djangoproject.com/en/4.0/ref/settings/#databases

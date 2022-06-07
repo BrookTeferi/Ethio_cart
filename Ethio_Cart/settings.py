@@ -11,6 +11,8 @@ https://docs.djangoproject.com/en/4.0/ref/settings/
 """
 
 from pathlib import Path
+from os import environ
+
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -69,19 +71,29 @@ TEMPLATES = [
     },
 ]
 
+
 WSGI_APPLICATION = 'Ethio_Cart.wsgi.application'
 
 Auth_User_Model = 'Accounts.Account'
 
 # Database
 # https://docs.djangoproject.com/en/4.0/ref/settings/#databases
+#configure databse
+DATABASES={
+            'default':{
+                'ENGINE':'django.db.backends.sqlite3',
+                'NAME':str(BASE_DIR / 'db.sqlite3'),
+                
+            }
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
-    }
+
 }
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.sqlite3',
+#         'NAME': BASE_DIR / 'db.sqlite3',
+#     }
+# }
 
 
 # Password validation
@@ -123,6 +135,10 @@ STATIC_ROOT=BASE_DIR/'static'
 STATICFILES_DIRS = [
     'Ethio_Cart/static',
 ]
+# media files configuration
+MEDIA_URL = '/media/'
+MEDIA_ROOT = BASE_DIR / 'media'
+
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.0/ref/settings/#default-auto-field
